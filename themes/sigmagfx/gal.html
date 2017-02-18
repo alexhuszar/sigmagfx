@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+	<meta name="Author" content="{{ meta.author }}">
+{% if meta.description %}
+	<meta name="Description" content="{{ meta.description }}">
+{% endif %}{% if meta.robots %}
+	<meta name="robots" content="{{ meta.robots }}">
+{% endif %}
+	<link rel="shortcut icon" href="{{ theme_url }}/images/favicon.ico" type="image/x-icon" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name = "apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ theme_url }}/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ theme_url }}/style/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ theme_url }}/grid/css/component.css" />
+	
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="{{ theme_url }}/js/jquery.transit.min.js"></script>
+	<script src="{{ theme_url }}/bootstrap/js/bootstrap.min.js"></script>
+		
+	<script src="{{ theme_url }}/js/modernizr.custom.js"></script>
+	<script src="{{ theme_url }}/js/sigmagfx.preloader.js"></script>
+<!--	<script src="{{ theme_url }}/js/sigmagfx.main.js"></script> -->
+
+
+</head>
+  <body>
+  <div id="loader"></div>
+	
+	<nav class="nav-cont">
+	
+	<div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" id="small-logo" href="http://sigmagfx.com"><img src="{{ theme_url }}/images/slogo.png" alt="sigmagfx.com"><div>sigmagfx</div></a>
+        </div>
+        <div class="navbar-collapse collapse">
+                <ul class='nav navbar-nav' id=''>
+					
+						<li class='dropdown' >
+							<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Portfolio <b class='caret'></b></a>
+							<ul class='dropdown-menu'>
+								<!--<li class='' ><a href='#'>Print </a></li>-->
+								<li class='dropdown' ><a href='/branding'>Branding </a>
+									<!--<ul role="menu" class="dropdown-menu" style="display: none;">
+										<li class=""><a href="/branding_print">Print</a></li>
+										<li class=""><a href="/branding_web">Web</a></li>
+									</ul>-->
+								</li>
+								<li class='dropdown' ><a href='/maps'>Maps </a>
+									<!--<ul role="menu" class="dropdown-menu" style="display: none;">
+										<li class=""><a href="/maps_print">Print</a></li>
+										<li class="last"><a href="/maps_web">Web</a></li>
+									</ul>-->
+								</li>
+								<!--<li class='last' ><a href='#'>Free </a></li>-->
+							</ul>
+						</li>
+						<li class=''><a href='https://sellfy.com/sigmagfx'>Shop</a></li>
+						<a class="navbar-brand" id="big-logo" href="http://sigmagfx.com"><img src="{{ theme_url }}/images/mlogo.png"></a>
+						<li class='dropdown' ><a href='http://blog.sigmagfx.com' target="_blank" >Blog </a></li>
+						<li class='dropdown' ><a href='' class='dropdown-toggle' data-toggle='dropdown'>Contact <b class='caret'></b></a>
+							<ul class='dropdown-menu'>
+								<li class='' ><a href='http://sigmagfx.com/about/'>About us! </a></li>
+								<li class='last' ><a href='http://sigmagfx.com/contact'>Message us! </a></li>
+							</ul>
+						</li>
+				</ul>
+        </div>
+    </div>
+	</nav>
+	
+	<div id="content-sigmagfx" >
+	<div class="caontainer">
+		<div id="gallery">
+			{{ content }} 
+			<div class="line-s container"></div>
+			<div id="grid-gallery" class="grid-gallery">
+				<section class="grid-wrap">
+					<ul class="grid">
+						<li class="grid-sizer"></li><!-- for Masonry column width -->
+
+{% for image in gallery %}
+						<li>
+							<figure>
+								<img src="{{ image.url_500 }}" alt="{{ image.id }}"/>
+								<figcaption><p>{{ image.caption }}</p></figcaption>
+							</figure>
+						</li>
+{% endfor %}
+					</ul>
+				</section><!-- // grid-wrap -->
+				<section class="slideshow">
+					<ul>
+{% for image in gallery %}
+						<li>
+							<figure>
+								<figcaption><p>{{ image.caption }}</p></figcaption>
+								<img src="{{ image.url_large }}" alt="{{ image.id }}"/>
+							</figure>
+						</li>
+{% endfor %}
+					</ul>
+					<nav>
+						<span class="icon nav-prev"></span>
+						<span class="icon nav-next"></span>
+						<span class="icon nav-close"></span>
+					</nav>
+					<div class="info-keys icon">Navigate with arrow keys</div>
+				</section><!-- // slideshow -->
+			</div><!-- // grid-gallery -->
+		</div><!-- // gallery -->
+		<script src="http://sigmagfx.com/themes/sigmagfx/grid/js/imagesloaded.pkgd.min.js"></script>
+		<script src="http://sigmagfx.com/themes/sigmagfx/grid/js/masonry.pkgd.min.js"></script>
+		<script src="http://sigmagfx.com/themes/sigmagfx/grid/js/classie.js"></script>
+		<script src="http://sigmagfx.com/themes/sigmagfx/grid/js/cbpGridGallery.js"></script>
+		<script>
+			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+		</script>
+	</div>
+	</div>
+	<div class="line-s container"></div>
+{% include 'footer.html' %}

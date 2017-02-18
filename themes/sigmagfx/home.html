@@ -1,0 +1,52 @@
+﻿{% include 'header.html' %}
+<div id="work-sigmagfx" class="work-container">
+	<div class="main-title container">
+		<div class="title content-center">
+		<h1>Creating Brand Identity</h1>
+		<h2>Customized and unique designs for your web and offline presence.</h2>
+		</div>
+	</div>
+	<div class="line-s container"></div>
+	<div id="galileo" class="hide">
+		<div id="navbar-portfolio">
+			<nav class="navbar navbar-portfolio">
+				<div id="portfolio-prev" class="prev disable"></div>
+				<div id="portfolio-next" class="next"></div>
+			</nav>
+		</div>
+		<div id="portfolio-mask" class="galileo-mask">
+			<div class="row active">
+			<!--<div id="portfolio-category0-list" class="portfolio-list active">-->
+	{% for image in gallery %}
+			  <div>
+				<div class="thumbnail">
+					<img class="project-thumb wp-post-image" src="{{ image.url_500 }}" alt="pic">
+					<div class="project-hover anim300">
+								<div class="title">{{ image.caption }}</div>
+									<div class="description">
+										<!--Features<ul>
+										<li> 100% AI, EPS and PSD editable files. </li>
+										<li> Easy to Change Size and Color</li>
+										<li> Full Vector shapes Layers</li>
+										<li>Editable text</li>
+										<li> Grouped and Organized Layers</li>
+										<li> Drag and Drop Stickers in Your Project </li>
+										</ul>-->
+									<!--Only for <span>3.99 €</span> <div><a href="https://sigmagfx.com">View</a> <a href="https://sigmagfx.com">Buy</a></div>-->
+								</div>
+							</div>
+				</div>
+			</div>
+	{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="line-s container"></div>
+	<section id="sigmagfx-pagination" class="content-center container">
+			<h2>Creating a brand identity is the first step of a successful marketing campaign.</h2>
+			<h2>Customized and unique designs for your web and offline presence.</h2>
+			<h2>Maps are among the most creative ways of data visualization.</h2>
+	</section>
+	<div class="line-s container"></div>
+</div>
+{% include 'footer.html' %}
