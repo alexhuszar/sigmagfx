@@ -1,3 +1,12 @@
-bower_components/
-node_modules/
-temp/
+themes/sigmagfx/bower_components/
+crypto/
+hashstats/
+hockey/
+lib/
+plugins/
+themes/index.html
+themes/default
+vendor/
+zoomify/
+config.php
+index.php
