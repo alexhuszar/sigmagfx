@@ -9,5 +9,6 @@ themes/index.html
 themes/default
 vendor/
 zoomify/
+.htaccess
 config.php
 index.php

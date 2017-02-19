@@ -1,7 +1,21 @@
-﻿{% include 'header.html' %}
-<div id="content-sigmagfx" {% if is_front_page %}class="opacity0"{% endif %}>
-	<div class="container">
-		{{ content }} 
+<!DOCTYPE html>
+<html>
+    
+{% include 'header.html' %}
+    
+    <body>
+	<div id="loader"></div>
+	
+    {% include 'navbar.html' %}
+          
+    <div id="content-sigmagfx" {% if is_front_page %}class="opacity0"{% endif %}>
+        <div class="container">
+            {{ content }} 
+        </div>
 	</div>
-	</div>
-{% include 'footer.html' %}
+        
+    {% include 'footer.html' %}
+    {% include 'counters.html' %}
+          
+    </body>
+</html>
